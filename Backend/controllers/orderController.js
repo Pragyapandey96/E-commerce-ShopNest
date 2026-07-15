@@ -33,7 +33,7 @@ const createOrder = async (req, res) => {
 
 const myOrders = async (req, res) => {
     try {
-        const orders = await Order.find({ user: req.users._id }).populate('items.productId', 'name price');
+        const orders = await Order.find({ user: req.user._id }).populate('items.productId', 'name price');
         res.json(orders);
     } catch (error) {
         res.status(500).json({ message: 'Error fetching orders', error });
@@ -42,7 +42,7 @@ const myOrders = async (req, res) => {
 
 const getOrders = async (req, res) => {
     try {
-        const orders = await Order.find({}).populate('userId', 'id name');
+        const orders = await Order.find({}).populate('user', 'id name');
         res.json(orders);
     } catch (error) {
         res.status(500).json({ message: 'Error fetching orders', error });
@@ -50,7 +50,7 @@ const getOrders = async (req, res) => {
 };
 
 
-const updateOrderStatus = async (req, res) {
+const updateOrderStatus = async (req, res) => {
     try {
         const { status } = req.body;
         const order = await Order.findById(req.params.id);
