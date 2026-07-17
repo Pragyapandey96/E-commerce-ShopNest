@@ -1,0 +1,46 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(9,9,1,0.8);
+    color: #fff;
+}
+
+.navbar{
+     .logo{
+        font-size: 24px;
+        font-weight: bold;
+     }
+
+     .nav-links {
+        display: flex;
+        gap: 20px;
+     }
+
+     .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        transition: color 0.3s ease;
+     }
+
+     .nav-links a:hover {
+        color: #ff6347;
+     }
+
+     .cart-icon {
+        position: relative;
+        font-size: 24px;
+        cursor: pointer;
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #ff6347;
+            color: #fff;
+        }
+     }
+
+ }
