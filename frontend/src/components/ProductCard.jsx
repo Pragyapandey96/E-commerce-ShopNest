@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "../styles/product.css";
 
-const ProductCart = ({ product }) => {
+const ProductCard = ({ product }) => {
   return (
     <div className='product-card'>
         <img src={product.imageUrl} alt={product.name} className='product-image' />
@@ -17,4 +17,4 @@ const ProductCart = ({ product }) => {
   );
 };
 
-export default ProductCart;
+export default ProductCard;
