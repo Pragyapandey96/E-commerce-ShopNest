@@ -27,7 +27,7 @@ const Home = () => {
         <p>Discover the best products at unbeatable prices.</p>
       </div>
       <h2>Featured Products</h2>
-      (loading ? (
+      {loading ? (
         <div>Loading...</div>
       ) : (
         <div className='product-grid'>
@@ -35,7 +35,7 @@ const Home = () => {
             <ProductCard key={product._id} product={product} />
           ))}
         </div>
-      ))
+      )}
     </div>
   );
 }
