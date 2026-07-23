@@ -6,6 +6,10 @@ import Home from './pages/Home';
 import About from './pages/About';
 import ReturnPolicy from './pages/ReturnPolicy';
 import Disclaimer from './pages/Disclaimer';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import ProductDetails from './pages/ProductDetails';
+import Cart from './pages/Cart'
 
 const App = () => {
   return (
@@ -17,7 +21,10 @@ const App = () => {
            <Route path='/about' element={<About />} />
            <Route path='/return' element={<ReturnPolicy />} />
            <Route path='/disclaimer' element={<Disclaimer />} />
-        </Routes>
+           <Route path='/login' element={<Login />} />
+           <Route path='/register' element={<Register />} />
+           <Route path='/products/:id' element={<ProductDetails />} />
+           </Routes>
         <Footer />
       </Router>
     </div>
