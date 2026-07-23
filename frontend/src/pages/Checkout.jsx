@@ -36,7 +36,7 @@ const Checkout = () => {
       }
 
       const options = {
-        key: 'rzp_test_dummykey123', // Student dummy fallback
+        key: 'rzp_test_TH2T561lLsQ1lv', // Student dummy fallback
         amount: orderData.amount,
         currency: orderData.currency,
         name: 'ShopNest',
@@ -56,12 +56,20 @@ const Checkout = () => {
                 Authorization: `Bearer ${user.token}`
               },
               body: JSON.stringify({
-                items: cartItems,
+                items: cartItems.map(item => ({
+          productId: item._id,
+          quantity: item.qty,
+          price: item.price,
+        })),
                 totalAmount: totalPrice,
                 address,
                 paymentId: response.razorpay_payment_id
               })
             });
+            console.log("Status:", saveOrderRes.status);
+            const result = await saveOrderRes.json();
+            console.log(result);
+
 
             if (saveOrderRes.ok) {
               dispatch(clearCart());
@@ -98,7 +106,11 @@ const Checkout = () => {
         Authorization: `Bearer ${user.token}`
       },
       body: JSON.stringify({
-        items: cartItems,
+        items: cartItems.map(item => ({
+          productId: item._id,
+          quantity: item.qty,
+          price: item.price,
+        })),
         totalAmount: totalPrice,
         address,
         paymentId: 'bypass_txn_' + Date.now()

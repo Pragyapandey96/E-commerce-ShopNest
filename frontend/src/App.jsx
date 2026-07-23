@@ -9,8 +9,15 @@ import Disclaimer from './pages/Disclaimer';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import ProductDetails from './pages/ProductDetails';
-import Cart from './pages/Cart'
-import Checkout from './pages/Checkout'
+import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
+import Profile from './pages/Profile';
+import Admin from './admin/AdminDashboard';
+import AddProduct from './admin/AddProduct';
+import AdminProducts from './admin/AdminProducts';
+import AdminOrders from './admin/AdminOrders';
+import AdminUsers from './admin/AdminUsers';
+import EditProduct from './admin/EditProduct';
 
 const App = () => {
   return (
@@ -27,6 +34,13 @@ const App = () => {
            <Route path='/products/:id' element={<ProductDetails />} />
            <Route path='/cart' element={<Cart />} />
            <Route path='/checkout' element={<Checkout />} />
+           <Route path='/profile' element={<Profile />} />
+           <Route path='/admin' element={<Admin />} />
+           <Route path='/admin/add-product' element={<AddProduct />} />
+           <Route path='/admin/products' element={<AdminProducts />} />
+           <Route path='/admin/orders' element={<AdminOrders />} />
+           <Route path='/admin/users' element={<AdminUsers />} />
+           <Route path='/admin/edit-product/:id' element={<EditProduct />} />
            </Routes>
         <Footer />
       </Router>

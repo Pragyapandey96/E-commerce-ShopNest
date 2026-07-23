@@ -6,6 +6,7 @@ import "../styles/navbar.css"
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
+    console.log("User:", user);
     const cartItems = useSelector((state) => state.cart.cartItems);
     const navigate = useNavigate();
 
@@ -27,7 +28,7 @@ const Navbar = () => {
                 {user ? (
                     <>
                     <li><Link to="/profile">Hi, {user.name}</Link></li>
-                    user.role === 'admin' && <li><Link to="/admin">Admin</Link></li>
+                    {user.role === 'admin' && <li><Link to="/admin">Admin</Link></li>}
                     <li><button onClick={handleLogout} className='btn-logout'>Logout</button></li>
                     </>
                 ) : (

@@ -2,10 +2,13 @@ const Order = require("../model/Order");
 
 const sendEmail = require("../utils/sendEmail");
 
+
 // create a new order
 const createOrder = async (req, res) => {
 
     try {
+        
+
          const { items, totalAmount, address, paymentId } = req.body;
          if(!items || items.length === 0 || !totalAmount || !address ) {
             return res.status(400).json({ message: 'Invalid order data' });
@@ -26,9 +29,19 @@ const createOrder = async (req, res) => {
             await sendEmail(req.user.email, 'Order Created', message);
             res.status(201).json({ message: 'Order created successfully', order });
          }
-    } catch (error) {
-        res.status(500).json({ message: 'Error while creating order', error });
-    }
+        }
+    // } catch (error) {
+    //     res.status(500).json({ message: 'Error while creating order', error });
+    // }
+    catch (error) {
+    console.error("===== CREATE ORDER ERROR =====");
+    console.error(error);
+    console.error("==============================");
+
+    res.status(500).json({
+        message: error.message,
+    });
+}
 };
 
 const myOrders = async (req, res) => {
