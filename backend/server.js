@@ -34,7 +34,7 @@ app.use("/api/analytics", require("./routes/analyticsRoutes"));
 
 
 // Serve frontend in production
-if(process.env.Node_ENV === 'production'){
+if(process.env.NODE_ENV === 'production'){
     app.use(express.static(path.join(__dirname, '../frontend/build')));
 
     app.use((req, res) => {
